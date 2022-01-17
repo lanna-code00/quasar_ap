@@ -1,6 +1,6 @@
 <template>
-  <q-page class="flex flex-center">
-    
+  <q-page>
+     <p class="text-h5">Home</p>
   </q-page>
 </template>
 
@@ -8,6 +8,6 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'PageIndex'
+  name: 'PageHome'
 })
 </script>

@@ -3,10 +3,10 @@
 
     <q-header bordered class="text-black bg-white">
       <q-toolbar>
-        <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
-
+        <q-btn dense flat round icon="menu" class="gt-sm" @click="toggleLeftDrawer" />
+    
         <q-toolbar-title class="text-weight-bold">
-          <span class="gt-sm">Quasar</span> 
+          <span class="gt-sm">{{ $route.name }}</span> 
             <q-icon name="fab fa-twitter" class="header-icon q-pa-md lt-md" color="primary" size="sm"/>
         </q-toolbar-title>
 
@@ -17,21 +17,21 @@
       <!-- drawer content -->
       <q-icon name="fab fa-twitter" class="q-pa-md gt-sm" color="primary" size="lg"/>
       <q-list>
-        <q-item clickable v-ripple to="/">
+        <q-item clickable v-ripple to="/" exact>
            <q-item-section avatar>
               <q-icon name="home" class="text-weight-bold"/>
             </q-item-section>
             <q-item-section class="text-h6">Home</q-item-section>
         </q-item>
 
-         <q-item clickable v-ripple to="/about">
+         <q-item clickable v-ripple to="/about" exact>
             <q-item-section avatar>
               <q-icon name="help" class="text-weight-bold"/>
               </q-item-section>
             <q-item-section class="text-h6">About</q-item-section>
          </q-item>
 
-          <q-item clickable v-ripple to="/settings">
+          <q-item clickable v-ripple to="/settings" exact>
             <q-item-section avatar>
               <q-icon name="fas fa-cog" class="text-weight-bold"/>
               </q-item-section>
