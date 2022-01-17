@@ -12,9 +12,33 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" class="q-pa-md" bordered>
+    <q-drawer show-if-above v-model="leftDrawerOpen" side="left"  bordered :width="283">
       <!-- drawer content -->
-      <q-icon name="fab fa-twitter" class="text-primary" size="lg"/>
+      <q-icon name="fab fa-twitter" class="q-pa-md" color="primary" size="lg"/>
+      <q-list>
+        <q-item clickable v-ripple to="/">
+           <q-item-section avatar>
+              <q-icon name="home" class="md text-weight-bold"/>
+            </q-item-section>
+            <q-item-section class="text-h6">Home</q-item-section>
+        </q-item>
+
+         <q-item clickable v-ripple to="/about">
+            <q-item-section avatar>
+              <q-icon name="help" class="md text-weight-bold"/>
+              </q-item-section>
+            <q-item-section class="text-h6">About</q-item-section>
+         </q-item>
+
+          <q-item clickable v-ripple to="/settings">
+            <q-item-section avatar>
+              <q-icon name="fas fa-cog" class="md text-weight-bold"/>
+              </q-item-section>
+            <q-item-section class="text-h6">Setting</q-item-section>
+          </q-item>
+      </q-list>
+
+
     </q-drawer>
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right" bordered>
@@ -29,7 +53,6 @@
 
 <script>
 import { ref } from 'vue'
-
 export default {
   setup () {
     const leftDrawerOpen = ref(false)
