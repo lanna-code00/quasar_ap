@@ -41,8 +41,42 @@
 
     </q-drawer>
 
-    <q-drawer show-if-above v-model="rightDrawerOpen" side="right" bordered>
-    </q-drawer>
+    <q-drawer show-if-above v-model="rightDrawerOpen" side="right" bordered :width="350">
+      <q-input outlined rounded dense class="q-ma-md" placeholder="Search Quasar">
+        <template v-slot:prepend>
+          <q-icon name="fas fa-search" size="sm"/>
+        </template>
+      </q-input>
+    
+    <q-list padding>
+      <q-item class="q-pa-md">
+        <q-item-section>
+          <q-item-label overline color="text-grey">Education</q-item-label>
+          <q-item-label class="text-weight-bold">Having issues with Qlist separator. But, it's workig now phew!</q-item-label>
+          <q-item-label caption>Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.Lorem ipsum dolor sit amet, consectetur adipiscit elit</q-item-label>
+        </q-item-section>
+
+        <q-item-section side top>
+          <q-item-label caption>5 min ago</q-item-label>
+        </q-item-section>
+      </q-item>
+    </q-list>
+<q-separator />
+     <q-list padding separator>
+      <q-item class="q-pa-md">
+        <q-item-section>
+          <q-item-label overline color="text-grey">Education</q-item-label>
+          <q-item-label class="text-weight-bold">Having issues with Qlist separator. But, it's workig now phew!</q-item-label>
+          <q-item-label caption>Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.Lorem ipsum dolor sit amet, consectetur adipiscit elit</q-item-label>
+        </q-item-section>
+
+        <q-item-section side top>
+          <q-item-label caption>5 min ago</q-item-label>
+        </q-item-section>
+      </q-item>
+    </q-list>
+<q-separator />
+    </q-drawer> 
 
     <q-page-container>
       <router-view />
