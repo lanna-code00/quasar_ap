@@ -3,7 +3,7 @@
 
     <q-header bordered class="text-black bg-white">
       <q-toolbar>
-        <q-btn dense flat round icon="menu" class="gt-sm" @click="toggleLeftDrawer" />
+        <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
     
         <q-toolbar-title class="text-weight-bold">
           <span class="gt-sm">{{ $route.name }}</span> 

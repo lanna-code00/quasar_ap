@@ -1,5 +1,6 @@
 <template>
-  <q-page>
+  <q-page class="relative-position">
+      <q-scroll-area class="absolute fullscreen">
     <div class="q-py-lg q-px-md row items-end q-gutter-md">
       <div class="col">
         <q-input 
@@ -39,7 +40,13 @@
     </div>
       <q-separator size="10px" class="divider" color="grey-2"/>
 
+
       <q-list separator>
+        <transition-group
+          appear
+          enter-active-class="animated fadeIn slow"
+          leave-active-class="animated fadeOut slow"
+        >
       <q-item class="q-py-md" v-for="tweets in quasar_tweets" :key="tweets.date">
         <q-item-section avatar top>
          <q-avatar size="xl">
@@ -49,7 +56,7 @@
 
         <q-item-section class="q-ma-md text-subtitle1">
           <q-item-label class="text-weight-bold">Maryanne Ezeobidi
-              <span class="text-grey-7">@maobi_nwa</span>
+              <span class="text-grey-7">@maobi_nwa</span> <br class="lt-md"> &bull; <span class="text-grey-7">{{ relativeDate(tweets.date) }}</span>
           </q-item-label>
           <q-item-label class="quasar_content text-body1">{{ tweets.content }}
           </q-item-label>
@@ -88,12 +95,13 @@
                 />
         </div>
         </q-item-section>
-        <q-item-section side top>
-          {{ relativeDate(tweets.date) }}
-        </q-item-section>
+        <!-- <q-item-section side top>
+          
+        </q-item-section> -->
       </q-item>
-
+        </transition-group>
       </q-list>
+          </q-scroll-area>
 
   </q-page>
 </template>
@@ -132,6 +140,7 @@ export default {
             date: new Date()
         }
         this.quasar_tweets.unshift(quasarObject)
+        this.text = ""
     },
 
     deleteQuasar(dates){
