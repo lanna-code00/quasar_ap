@@ -25,6 +25,7 @@
       </div>
       <div class="col col-shrink ">
             <q-btn 
+            @click="addNewQuasar"
             unelevated 
             rounded 
             color="primary" 
@@ -38,8 +39,8 @@
     </div>
       <q-separator size="10px" class="divider" color="grey-2"/>
 
-      <q-list >
-      <q-item class="q-py-md">
+      <q-list separator>
+      <q-item class="q-py-md" v-for="tweets in quasar_tweets" :key="tweets.date">
         <q-item-section avatar top>
          <q-avatar size="xl">
               <img src="https://cdn.quasar.dev/img/avatar5.jpg">
@@ -47,14 +48,10 @@
         </q-item-section>
 
         <q-item-section class="q-ma-md text-subtitle1">
-          <q-item-label class="text-weight-bold">Maryanne Ezeobidi 
-              <span class="text-grey-7">@maryanne_obidi</span>
+          <q-item-label class="text-weight-bold">Maryanne Ezeobidi
+              <span class="text-grey-7">@maobi_nwa</span>
           </q-item-label>
-          <q-item-label class="quasar_content text-body1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-             
-                  Libero porro tempore eius fugit modi. 
-                  Perferendis id temporibus corrupti omnis! 
-                  Eligendi aliquid in perspiciatis corporis ad optio totam quia voluptate laudantium?
+          <q-item-label class="quasar_content text-body1">{{ tweets.content }}
           </q-item-label>
         <div class="quasar-icons row justify-between q-mt-sm">
                 <q-btn 
@@ -81,7 +78,8 @@
                  size="sm" 
                 />
 
-                   <q-btn 
+                <q-btn 
+                  @click="deleteQuasar(tweets)"
                  flat 
                  round 
                  color="grey-5" 
@@ -91,7 +89,7 @@
         </div>
         </q-item-section>
         <q-item-section side top>
-          1 min ago
+          {{ relativeDate(tweets.date) }}
         </q-item-section>
       </q-item>
 
@@ -101,14 +99,46 @@
 </template>
 
 <script>
-
+import { formatDistance } from 'date-fns'
 export default {
   name: 'PageHome',
   data(){
     return {
-        text: ""
+        text: "",
+        quasar_tweets: [
+            {
+              content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero porro tempore eius fugit modi. Perferendis id temporibus corrupti omnis! Eligendi aliquid in perspiciatis corporis ad optio totam quia voluptate laudantium',
+              date: 1642487595735,
+            },
+            {
+              content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero porro tempore eius fugit modi. Perferendis id temporibus corrupti omnis! Eligendi aliquid in perspiciatis corporis ad optio totam quia voluptate laudantium',
+              date: 1642487632574,
+            },
+            {
+              content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero porro tempore eius fugit modi. Perferendis id temporibus corrupti omnis! Eligendi aliquid in perspiciatis corporis ad optio totam quia voluptate laudantium',
+              date: 1642487642867,
+            }
+        ]
     }
-  }
+  },
+ methods: {
+    relativeDate(value) {
+      return formatDistance(value, new Date())
+    },
+
+    addNewQuasar(){
+        let quasarObject = {
+            content: this.text,
+            date: new Date()
+        }
+        this.quasar_tweets.unshift(quasarObject)
+    },
+
+    deleteQuasar(dates){
+       let index = this.quasar_tweets.findIndex(quasar => quasar.date === dates.date);
+       this.quasar_tweets.splice(index, 1)
+    }
+}
 }
 </script>
 
