@@ -37,6 +37,66 @@
       </div>
     </div>
       <q-separator size="10px" class="divider" color="grey-2"/>
+
+      <q-list >
+      <q-item class="q-py-md">
+        <q-item-section avatar top>
+         <q-avatar size="xl">
+              <img src="https://cdn.quasar.dev/img/avatar5.jpg">
+            </q-avatar>
+        </q-item-section>
+
+        <q-item-section class="q-ma-md text-subtitle1">
+          <q-item-label class="text-weight-bold">Maryanne Ezeobidi 
+              <span class="text-grey-7">@maryanne_obidi</span>
+          </q-item-label>
+          <q-item-label class="quasar_content text-body1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+             
+                  Libero porro tempore eius fugit modi. 
+                  Perferendis id temporibus corrupti omnis! 
+                  Eligendi aliquid in perspiciatis corporis ad optio totam quia voluptate laudantium?
+          </q-item-label>
+        <div class="quasar-icons row justify-between q-mt-sm">
+                <q-btn 
+                 flat 
+                 round 
+                 color="grey-5" 
+                 icon="far fa-comment"
+                 size="sm" 
+                />
+
+                   <q-btn 
+                 flat 
+                 round 
+                 color="grey-5" 
+                 icon="fas fa-retweet"
+                 size="sm" 
+                />
+
+                   <q-btn 
+                 flat 
+                 round 
+                 color="grey-5" 
+                 icon="far fa-heart"
+                 size="sm" 
+                />
+
+                   <q-btn 
+                 flat 
+                 round 
+                 color="grey-5" 
+                 icon="fas fa-trash"
+                 size="sm" 
+                />
+        </div>
+        </q-item-section>
+        <q-item-section side top>
+          1 min ago
+        </q-item-section>
+      </q-item>
+
+      </q-list>
+
   </q-page>
 </template>
 
@@ -61,4 +121,8 @@ export default {
    border-top: 1px solid
    border-bottom: 1px solid      
    border-color: $grey-4
+.quasar_content
+   white-space: pre-line   
+.quasar-icons
+   margin-left: -5px   
 </style>
