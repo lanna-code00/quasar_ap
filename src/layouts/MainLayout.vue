@@ -8,6 +8,8 @@
         <q-toolbar-title class="text-weight-bold">
           <span class="gt-sm">{{ $route.name }}</span> 
             <q-icon name="fab fa-twitter" class="header-icon q-pa-md lt-md" color="primary" size="sm"/>
+          Quasar
+
         </q-toolbar-title>
 
       </q-toolbar>
@@ -15,25 +17,25 @@
 
     <q-drawer show-if-above v-model="leftDrawerOpen" side="left"  bordered :width="283">
       <!-- drawer content -->
-      <q-icon name="fab fa-twitter" class="q-pa-md gt-sm" color="primary" size="lg"/>
+      <q-icon name="fab fa-twitter" class="q-pa-md" color="primary" size="lg"/>
       <q-list>
         <q-item clickable v-ripple to="/" exact>
            <q-item-section avatar>
-              <q-icon name="home" class="text-weight-bold"/>
+              <q-icon name="home" class="md text-weight-bold"/>
             </q-item-section>
             <q-item-section class="text-h6">Home</q-item-section>
         </q-item>
 
          <q-item clickable v-ripple to="/about" exact>
             <q-item-section avatar>
-              <q-icon name="help" class="text-weight-bold"/>
+              <q-icon name="help" class="md text-weight-bold"/>
               </q-item-section>
             <q-item-section class="text-h6">About</q-item-section>
          </q-item>
 
           <q-item clickable v-ripple to="/settings" exact>
             <q-item-section avatar>
-              <q-icon name="fas fa-cog" class="text-weight-bold"/>
+              <q-icon name="fas fa-cog" class="md text-weight-bold"/>
               </q-item-section>
             <q-item-section class="text-h6">Setting</q-item-section>
           </q-item>
@@ -107,11 +109,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-  .header-icon
-     position: absolute
-     left: 50%
-     bottom: 0
-     transform: translateX(-50%)
-</style>
